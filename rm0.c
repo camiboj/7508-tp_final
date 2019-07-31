@@ -5,11 +5,17 @@
 
 #include <unistd.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+
 int rm0(const char *file) {
     return unlink(file);
 }
 
 int main(int argc, char *argv[]) {
-    // do something with argc to avoid warnings
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <pathname>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
     return rm0(argv[1]);
 }

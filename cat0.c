@@ -4,6 +4,10 @@
 #define _POSIX_C_SOURCE 200809L
 #define MAX_READ 1024
 #define STDOUT 1
+#define STAT0_READ_FAIL 4
+#define STAT0_WRITE_FAIL 5
+#define STAT0_OPEN_FAIL 6
+
 
 #include <unistd.h>
 #include <stdio.h>
@@ -36,7 +40,10 @@ void cat0(const char *file_name) {
 }
 
 int main(int argc, char *argv[]) {
-    // do something with argc to avoid warnings
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <pathname>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
     cat0(argv[1]);
     return 0;
 }
