@@ -114,3 +114,24 @@ Size: 4096
 File: another_test
 Type: directory
 ```
+
+## ls0
+```
+$ gcc -std=c11 -Wall -Wextra -g ls0.c -o ls0
+$ ls                                     
+a             cat0    empty  ls0.c  rm0.c  stat0.c  test.txt
+another_test  cat0.c  ls0    rm0    stat0  test.md
+$ ./ls0
+rm0	ls0	cat0.c	test.txt	stat0	a	stat0.c	cat0	ls0.c	another_test	test.md	rm0.c	empty	
+```
+```
+$ ls another_test 
+hol  hol2.txt
+$ ./ls0 another_test 
+hol2.txt	hol	
+```
+```
+$ ls empty 
+$ ./ls0 empty 
+
+```
