@@ -25,6 +25,7 @@ int ls0(const char *dir_name) {
         if (res->d_name[0] != '.')
             fprintf(stdout, "%s\t", res->d_name);
     }
+    fprintf(stdout, "\n");
     int s = closedir(dirp);
     if (s == -1) {
         return LS0_CLOSEDIR_FAIL;
