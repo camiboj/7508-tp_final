@@ -64,3 +64,53 @@ Size: 1318
 File: README.md
 Type: regular file
 ```
+Pruebas:
+```
+$ gcc -std=c11 -Wall -Wextra -g stat0.c -o stat0
+$ stat test.md      //real stat                              
+  File: test.md
+  Size: 1794      	Blocks: 8          IO Block: 4096   regular file
+Device: 10304h/66308d	Inode: 2366520     Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/   camix)   Gid: ( 1000/   camix)
+Access: 2019-07-31 16:49:28.984783180 -0300
+Modify: 2019-07-31 16:49:28.984783180 -0300
+Change: 2019-07-31 16:49:28.988783202 -0300
+ Birth: -
+$ ./stat0 test.md   //my stat
+Size: 1794
+File: test.md
+Type: regular file
+```
+```
+$ stat test.txt  
+  File: test.txt
+  Size: 73        	Blocks: 8          IO Block: 4096   regular file
+Device: 10304h/66308d	Inode: 2366327     Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 1000/   camix)   Gid: ( 1000/   camix)
+Access: 2019-07-31 16:41:40.638215203 -0300
+Modify: 2019-07-31 16:41:37.950199880 -0300
+Change: 2019-07-31 16:41:37.950199880 -0300
+ Birth: -
+
+$ ./stat0 test.txt
+Size: 73
+File: test.txt
+Type: regular file
+```
+```
+$ mkdir another_test
+$ stat another_test                             
+  File: another_test
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 10304h/66308d	Inode: 2366529     Links: 2
+Access: (0755/drwxr-xr-x)  Uid: ( 1000/   camix)   Gid: ( 1000/   camix)
+Access: 2019-07-31 16:44:21.587118154 -0300
+Modify: 2019-07-31 16:44:21.555117976 -0300
+Change: 2019-07-31 16:44:21.555117976 -0300
+ Birth: -
+
+$ ./stat0 another_test 
+Size: 4096
+File: another_test
+Type: directory
+```
