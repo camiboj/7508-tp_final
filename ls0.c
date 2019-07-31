@@ -22,7 +22,8 @@ int ls0(const char *dir_name) {
     }
     struct dirent *res;
     while((res = readdir(dirp)) != NULL) {
-        fprintf(stdout, "%s\t", res->d_name);
+        if (res->d_name[0] != '.')
+            fprintf(stdout, "%s\t", res->d_name);
     }
     int s = closedir(dirp);
     if (s == -1) {
