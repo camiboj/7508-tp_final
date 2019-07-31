@@ -55,3 +55,12 @@ this is a test
 
 A REAL TEST
 ```
+
+## stat0
+Ejemplo dado por la cátedra:
+```
+$ ./stat0 README.md
+Size: 1318
+File: README.md
+Type: regular file
+```
