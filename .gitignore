@@ -1,7 +1,8 @@
 *.o
-rm0
-*/idea*
+./idea*
 test.txt
 a
 cat0
 stat0
+ls0
+rm0
