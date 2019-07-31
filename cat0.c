@@ -14,14 +14,15 @@
 void cat0(const char *file_name) {
     int flags = O_RDONLY;
     int file = open(file_name, flags);
-    if (file < 0) {
+    /*if (file < 0) {
         fprintf(stderr, "%s\n", explain_open(file_name, flags));
         exit(EXIT_FAILURE);
-    }
+    }*/
     char buf[MAX_READ];
     int count;
-    while((count = read(file, buf, MAX_READ)) != 0) {
-        if (count < 0) {
+    while((count = read(file, buf, MAX_READ)) > 0) {
+        write(STDOUT, buf, count);
+        /*if (count < 0) {
             fprintf(stderr, "%s\n", explain_read(file, buf, MAX_READ));
             exit(EXIT_FAILURE);
         }
@@ -29,7 +30,7 @@ void cat0(const char *file_name) {
         if (s < 0) {
             fprintf(stderr, "%s\n", explain_write(file, buf, count));
             exit(EXIT_FAILURE);
-        }
+        }*/
     }
     close(file);
 }
