@@ -6,19 +6,52 @@ rm0.c: In function ‘main’:
 rm0.c:9:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
  int main(int argc, char *argv[]) {
               ^~~~
-$ echo "this is a test" > test.txt
+```
+```
 $ ls
-rm0  rm0.c  test.txt
+rm0 test.txt
 $ ./rm0 test.txt
 $ ls
-rm0  rm0.c
+rm0
 ```
 ```
-$ echo "" > a
-$ sisfin ls
-a  rm0  rm0.c
-$ sisfin ./rm0 a
+$ ls
+a  rm0
+$ ./rm0 a
 $  ls
-rm0  rm0.c
+rm0 
 ```
 
+## cat0
+```
+$ gcc -std=c11 -Wall -Wextra -g cat0.c -o cat0
+cat0.c: In function ‘main’:
+cat0.c:38:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char *argv[]) {
+              ^~~~
+```
+```
+$ echo "this is a test" > test.txt
+$ cat test.txt  //real cat
+this is a test
+$ ./cat0 test.txt   //my cat
+this is a test
+```
+```
+$ echo "" > a        
+$ ./cat0 a       
+
+$ cat a
+
+```
+```
+$ echo "this is a test\n\nA REAL TEST" > test.txt
+$ ./cat0 test.txt                                
+this is a test
+
+A REAL TEST
+$ cat test.txt                                
+this is a test
+
+A REAL TEST
+```

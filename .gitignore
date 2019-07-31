@@ -1,3 +1,7 @@
 *.o
 rm0
+*/idea*
+test.txt
+a
+cat0
 
